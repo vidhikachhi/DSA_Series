@@ -1,0 +1,29 @@
+// Leetcode 2965. Find Missing and Repeated Values solutions in java
+
+public class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return new int[]{-1, -1}; 
+        }
+
+        HashSet<Integer> seen = new HashSet<>();
+        int[] result = new int[2];
+        int n = grid.length * grid.length; 
+
+        int expectedSum = n * (n + 1) / 2;
+        int actualSum = 0;
+
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                int value = grid[i][j];
+                actualSum += value;
+                if (seen.contains(value)) 
+                    result[0] = value; 
+                 else 
+                    seen.add(value);
+            }
+        }
+        result[1] = expectedSum - (actualSum - result[0]); 
+        return result;
+    }
+}
