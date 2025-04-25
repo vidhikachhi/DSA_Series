@@ -1,0 +1,19 @@
+// Leetcode 1768. Merge Strings Alternatly solution in java 
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        int len1=word1.length();
+        int len2=word2.length();
+        String str="";
+        for(int i=0;i<(Math.min(len1,len2));i++){
+        str+=word1.charAt(i);
+        str+=word2.charAt(i);
+        }
+       if (len1 > len2)
+           str+=(word1.substring(len2));
+    
+        else if (len2 > len1) 
+             str+=(word2.substring(len1));
+             return str;
+    }
+    
+}
