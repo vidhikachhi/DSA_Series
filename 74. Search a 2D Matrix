@@ -1,0 +1,15 @@
+// Leetcode 74. Search a 2D Matrix solution in jave
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix[0].length==0||matrix.length==0||matrix==null)return false;
+    int rows=matrix.length;
+    int cols=matrix[0].length;
+    int r=0; int c=cols-1;
+    while(r<rows&&c>=0){
+     if(matrix[r][c]==target) return true;
+     else if(matrix[r][c]>target)c--;
+     else r++;
+    }  
+    return false;  
+    }
+}
